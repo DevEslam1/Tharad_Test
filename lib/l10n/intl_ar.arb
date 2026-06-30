@@ -1,0 +1,79 @@
+{
+  "@@locale": "ar",
+
+  "login_title": "تسجيل الدخول",
+  "email": "البريد الإلكتروني",
+  "email_placeholder": "Tharad@gmail.com",
+  "password": "كلمة المرور",
+  "password_placeholder": "••••••••••••",
+  "remember_me": "تذكرني",
+  "forgot_password": "هل نسيت كلمة المرور؟",
+  "login_button": "تسجيل الدخول",
+  "no_account": "ليس لديك حساب؟ ",
+  "create_new_account": "إنشاء حساب جديد",
+  "email_empty_error": "البريد الإلكتروني مطلوب",
+  "email_invalid_error": "الرجاء إدخال بريد إلكتروني صحيح",
+  "password_empty_error": "كلمة المرور مطلوبة",
+  "password_too_short_error": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+  "login_success": "تم تسجيل الدخول بنجاح",
+  "login_failure": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+
+  "signup_title": "إنشاء حساب جديد",
+  "full_name": "الاسم الكامل",
+  "full_name_placeholder": "أحمد علي",
+  "confirm_password": "تأكيد كلمة المرور",
+  "signup_button": "إنشاء الحساب",
+  "have_account": "لديك حساب بالفعل؟ ",
+  "login_link": "تسجيل الدخول",
+  "photo_label": "الصورة الشخصية",
+  "photo_hint": "اضغط لتحميل الصورة",
+  "photo_sub_hint": "PNG, JPG",
+  "name_empty_error": "الاسم مطلوب",
+  "confirm_password_empty_error": "تأكيد كلمة المرور مطلوب",
+  "passwords_not_match_error": "كلمتا المرور غير متطابقتين",
+  "signup_success": "تم إنشاء الحساب بنجاح",
+  "signup_failure": "حدث خطأ، يرجى المحاولة مرة أخرى",
+
+  "otp_title": "رمز التحقق",
+  "otp_subtitle": "لاستكمال فتح حسابك ادخل رمز التحقق المرسل عبر البريد الإلكتروني",
+  "otp_resend": "إعادة الإرسال",
+  "otp_confirm": "المتابعة",
+  "otp_no_code": "لم يصلك رمز ؟ ",
+  "otp_resend_action": "إعادة إرسال",
+  "otp_resend_timer": "إعادة الإرسال بعد {seconds} ث",
+  "@otp_resend_timer": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "otp_invalid_error": "الرمز غير صحيح",
+
+  "profile_title": "الملف الشخصي",
+  "save_changes": "حفظ التغييرات",
+  "old_password": "كلمة المرور القديمة",
+  "new_password": "كلمة المرور الجديدة",
+  "confirm_new_password": "تأكيد كلمة المرور الجديدة",
+  "home": "الرئيسية",
+  "my_account": "حسابي",
+
+  "language_label": "English",
+
+  "language_title": "اللغة",
+  "arabic_lang": "اللغة العربية",
+  "english_lang": "English",
+  "apply_button": "تطبيق",
+  "home_welcome": "مرحبا ثراد تك !",
+  "home_banner_title": "تدريب Flutter لبناء تطبيقات موبايل حقيقية",
+  "about_training_title": "عن التدريب",
+  "about_training_content": "تدريب Flutter ده مش كورس تعليمي تقليدي،\nده برنامج عملي معمول علشان يجهز المتدرب يشتغل فعليًا على مشاريع حقيقية داخل الشركة.\nخلال فترة التدريب، المتدرب هيكون جزء من فريق العمل، وهيتعامل مع كود حقيقي، متطلبات حقيقية، ومشاكل بتتحل يوميًا في مشاريع قائمة بالفعل\nمش مجرد تطبيقات تجريبية أو أمثلة للتعلم.\nالتدريب بيعتمد على إن المتدرب:\n• يفهم طريقة الشغل داخل الشركة\n• يلتزم بمعايير كتابة كود احترافي\n• يتعامل مع Git وإدارة الإصدارات\n• يشتغل ضمن فريق ويستقبل Feedback بشكل مستمر\nالهدف الأساسي من التدريب هو تحويل المتدرب من مستوى متعلم إلى مطور Flutter قادر يدخل أي مشروع ويشتغل عليه بثقة.",
+  "work_nature_title": "طبيعة الشغل أثناء التدريب",
+  "work_nature_item_1": "المشاركة في تطوير تطبيقات موبايل حقيقية",
+  "work_nature_item_2": "تنفيذ Features مطلوبة في مشاريع قائمة",
+  "work_nature_item_3": "التعامل مع APIs و Backends فعلية",
+  "work_nature_item_4": "إصلاح Bugs وتحسين الأداء",
+  "work_nature_item_5": "الالتزام بـ Clean Code و Architecture واضحة",
+  "logout": "تسجيل الخروج",
+  "logout_success": "تم تسجيل الخروج بنجاح"
+}
