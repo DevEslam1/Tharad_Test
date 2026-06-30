@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import '../caching/cache_service.dart';
 
 class DioClient {
   static const String baseUrl = 'https://flutter.tharadtech.com/api/';
@@ -11,7 +12,18 @@ class DioClient {
       ..receiveTimeout = const Duration(seconds: 15)
       ..headers = {'Accept': 'application/json'};
 
-    // Logging interceptor for debugging network calls
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) {
+          final token = CacheService.getToken();
+          if (token != null && token.isNotEmpty) {
+            options.headers['Authorization'] = 'Bearer $token';
+          }
+          return handler.next(options);
+        },
+      ),
+    );
+
     dio.interceptors.add(
       LogInterceptor(
         request: true,

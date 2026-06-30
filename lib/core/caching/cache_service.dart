@@ -16,24 +16,19 @@ class CacheService {
 
     const secureStorage = FlutterSecureStorage();
 
-    // Read the encryption key if it already exists
     final secureKey = await secureStorage.read(key: 'hive_encryption_key');
     List<int> encryptionKey;
 
     if (secureKey == null) {
-      // Generate a new 256-bit encryption key
       encryptionKey = Hive.generateSecureKey();
-      // Store the key securely encoded in base64
       await secureStorage.write(
         key: 'hive_encryption_key',
         value: base64UrlEncode(encryptionKey),
       );
     } else {
-      // Decode the key from base64
       encryptionKey = base64Url.decode(secureKey);
     }
 
-    // Open the encrypted box
     _box = await Hive.openBox(
       authBoxName,
       encryptionCipher: HiveAesCipher(encryptionKey),

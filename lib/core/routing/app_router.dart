@@ -1,7 +1,7 @@
 import 'package:tharad_app/features/auth/ui/login_screen.dart';
 import 'package:tharad_app/features/auth/ui/otp.dart';
 import 'package:tharad_app/features/auth/ui/singup_screen.dart';
-// import 'package:tharad_app/features/profile/ui/profile_screen.dart';
+import 'package:tharad_app/features/profile/ui/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'routes.dart';
 
@@ -16,11 +16,7 @@ class AppRouter {
         final email = settings.arguments as String? ?? '';
         return MaterialPageRoute(builder: (_) => OtpScreen(email: email));
       case Routes.profileScreen:
-        return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-            body: Center(child: Text('Profile Screen Placeholder')),
-          ),
-        );
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
       default:
         return null;
     }
