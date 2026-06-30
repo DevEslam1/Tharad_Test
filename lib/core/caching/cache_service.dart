@@ -8,6 +8,7 @@ class CacheService {
   static const String usernameKey = 'username';
   static const String emailKey = 'email';
   static const String imageKey = 'image';
+  static const String languageKey = 'language';
 
   static Box? _box;
 
@@ -77,5 +78,13 @@ class CacheService {
 
   static Future<void> clearSession() async {
     await _getBox().clear();
+  }
+
+  static Future<void> saveLanguage(String langCode) async {
+    await _getBox().put(languageKey, langCode);
+  }
+
+  static String getLanguage() {
+    return _getBox().get(languageKey, defaultValue: 'ar');
   }
 }
