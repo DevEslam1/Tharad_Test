@@ -75,5 +75,10 @@
   "work_nature_item_4": "إصلاح Bugs وتحسين الأداء",
   "work_nature_item_5": "الالتزام بـ Clean Code و Architecture واضحة",
   "logout": "تسجيل الخروج",
-  "logout_success": "تم تسجيل الخروج بنجاح"
+  "logout_success": "تم تسجيل الخروج بنجاح",
+  "no_session_error": "لا توجد جلسة نشطة، يرجى تسجيل الدخول",
+  "profile_fetch_error": "فشل جلب بيانات الملف الشخصي",
+  "profile_fetch_offline_error": "فشل جلب البيانات أوفلاين",
+  "profile_update_error": "فشل تعديل البيانات",
+  "profile_update_success": "تم تعديل البيانات بنجاح"
 }

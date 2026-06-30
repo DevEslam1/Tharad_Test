@@ -9,6 +9,8 @@ class CacheService {
   static const String emailKey = 'email';
   static const String imageKey = 'image';
   static const String languageKey = 'language';
+  static const String rememberMeKey = 'remember_me';
+  static const String savedEmailKey = 'saved_email';
 
   static Box? _box;
 
@@ -86,5 +88,21 @@ class CacheService {
 
   static String getLanguage() {
     return _getBox().get(languageKey, defaultValue: 'ar');
+  }
+
+  static Future<void> saveRememberMe(bool value) async {
+    await _getBox().put(rememberMeKey, value);
+  }
+
+  static bool isRememberMe() {
+    return _getBox().get(rememberMeKey, defaultValue: false);
+  }
+
+  static Future<void> saveSavedEmail(String email) async {
+    await _getBox().put(savedEmailKey, email);
+  }
+
+  static String? getSavedEmail() {
+    return _getBox().get(savedEmailKey);
   }
 }

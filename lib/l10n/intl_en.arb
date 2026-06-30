@@ -75,5 +75,10 @@
   "work_nature_item_4": "Fixing bugs and optimizing performance",
   "work_nature_item_5": "Commitment to Clean Code and clear Architecture",
   "logout": "Logout",
-  "logout_success": "Logged out successfully"
+  "logout_success": "Logged out successfully",
+  "no_session_error": "No active session found, please log in",
+  "profile_fetch_error": "Failed to fetch profile details",
+  "profile_fetch_offline_error": "Failed to fetch details offline",
+  "profile_update_error": "Failed to update profile details",
+  "profile_update_success": "Profile updated successfully"
 }

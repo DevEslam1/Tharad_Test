@@ -1,4 +1,6 @@
 import 'package:tharad_app/features/auth/ui/login_screen.dart';
+import 'package:tharad_app/features/profile/ui/profile_screen.dart';
+import 'package:tharad_app/core/caching/cache_service.dart';
 import 'package:tharad_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +47,9 @@ class TharadTech extends StatelessWidget {
             },
           );
         },
-        child: const LoginScreen(),
+        child: CacheService.getToken() != null && CacheService.isRememberMe()
+            ? const ProfileScreen()
+            : const LoginScreen(),
       ),
     );
   }

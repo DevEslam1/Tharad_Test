@@ -28,16 +28,16 @@ class AppBottomNavBar extends StatelessWidget {
       child: Row(
         children: [
           _NavItem(
-            icon: Icons.person_outline_rounded,
-            label: S.of(context).my_account,
-            isActive: currentIndex == 0,
-            onTap: () => onTap?.call(0),
-          ),
-          _NavItem(
             icon: Icons.home_outlined,
             label: S.of(context).home,
             isActive: currentIndex == 1,
             onTap: () => onTap?.call(1),
+          ),
+          _NavItem(
+            icon: Icons.person_outline_rounded,
+            label: S.of(context).my_account,
+            isActive: currentIndex == 0,
+            onTap: () => onTap?.call(0),
           ),
         ],
       ),

@@ -11,6 +11,7 @@ import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_toast.dart';
+import '../../../../core/helpers/validators.dart';
 import '../logic/auth_cubit.dart';
 import '../logic/auth_state.dart';
 
@@ -130,12 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         controller: _nameController,
                         hintText: S.of(context).full_name_placeholder,
                         keyboardType: TextInputType.name,
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return S.of(context).name_empty_error;
-                          }
-                          return null;
-                        },
+                        validator: (value) => AppValidators.validateName(context, value),
                       ),
 
                       SizedBox(height: 12.h),
@@ -154,15 +150,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         controller: _emailController,
                         hintText: S.of(context).email_placeholder,
                         keyboardType: TextInputType.emailAddress,
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return S.of(context).email_empty_error;
-                          }
-                          if (!value.contains('@')) {
-                            return S.of(context).email_invalid_error;
-                          }
-                          return null;
-                        },
+                        validator: (value) => AppValidators.validateEmail(context, value),
                       ),
 
                       SizedBox(height: 12.h),
@@ -181,15 +169,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         controller: _passwordController,
                         hintText: S.of(context).password_placeholder,
                         obscureText: _isPasswordObscured,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return S.of(context).password_empty_error;
-                          }
-                          if (value.length < 6) {
-                            return S.of(context).password_too_short_error;
-                          }
-                          return null;
-                        },
+                        validator: (value) => AppValidators.validatePassword(context, value),
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -222,15 +202,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         controller: _confirmPasswordController,
                         hintText: S.of(context).password_placeholder,
                         obscureText: _isConfirmPasswordObscured,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return S.of(context).confirm_password_empty_error;
-                          }
-                          if (value != _passwordController.text) {
-                            return S.of(context).passwords_not_match_error;
-                          }
-                          return null;
-                        },
+                        validator: (value) => AppValidators.validateConfirmPassword(
+                            context, value, _passwordController.text),
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {

@@ -18,8 +18,10 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
@@ -41,8 +43,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -62,12 +66,7 @@ class S {
 
   /// `البريد الإلكتروني`
   String get email {
-    return Intl.message(
-      'البريد الإلكتروني',
-      name: 'email',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('البريد الإلكتروني', name: 'email', desc: '', args: []);
   }
 
   /// `Tharad@gmail.com`
@@ -82,12 +81,7 @@ class S {
 
   /// `كلمة المرور`
   String get password {
-    return Intl.message(
-      'كلمة المرور',
-      name: 'password',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('كلمة المرور', name: 'password', desc: '', args: []);
   }
 
   /// `••••••••••••`
@@ -102,12 +96,7 @@ class S {
 
   /// `تذكرني`
   String get remember_me {
-    return Intl.message(
-      'تذكرني',
-      name: 'remember_me',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تذكرني', name: 'remember_me', desc: '', args: []);
   }
 
   /// `هل نسيت كلمة المرور؟`
@@ -222,12 +211,7 @@ class S {
 
   /// `الاسم الكامل`
   String get full_name {
-    return Intl.message(
-      'الاسم الكامل',
-      name: 'full_name',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('الاسم الكامل', name: 'full_name', desc: '', args: []);
   }
 
   /// `أحمد علي`
@@ -272,12 +256,7 @@ class S {
 
   /// `تسجيل الدخول`
   String get login_link {
-    return Intl.message(
-      'تسجيل الدخول',
-      name: 'login_link',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تسجيل الدخول', name: 'login_link', desc: '', args: []);
   }
 
   /// `الصورة الشخصية`
@@ -302,12 +281,7 @@ class S {
 
   /// `PNG, JPG`
   String get photo_sub_hint {
-    return Intl.message(
-      'PNG, JPG',
-      name: 'photo_sub_hint',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('PNG, JPG', name: 'photo_sub_hint', desc: '', args: []);
   }
 
   /// `الاسم مطلوب`
@@ -362,12 +336,7 @@ class S {
 
   /// `رمز التحقق`
   String get otp_title {
-    return Intl.message(
-      'رمز التحقق',
-      name: 'otp_title',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('رمز التحقق', name: 'otp_title', desc: '', args: []);
   }
 
   /// `لاستكمال فتح حسابك ادخل رمز التحقق المرسل عبر البريد الإلكتروني`
@@ -392,12 +361,7 @@ class S {
 
   /// `المتابعة`
   String get otp_confirm {
-    return Intl.message(
-      'المتابعة',
-      name: 'otp_confirm',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('المتابعة', name: 'otp_confirm', desc: '', args: []);
   }
 
   /// `لم يصلك رمز ؟ `
@@ -492,42 +456,22 @@ class S {
 
   /// `الرئيسية`
   String get home {
-    return Intl.message(
-      'الرئيسية',
-      name: 'home',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('الرئيسية', name: 'home', desc: '', args: []);
   }
 
   /// `حسابي`
   String get my_account {
-    return Intl.message(
-      'حسابي',
-      name: 'my_account',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('حسابي', name: 'my_account', desc: '', args: []);
   }
 
   /// `English`
   String get language_label {
-    return Intl.message(
-      'English',
-      name: 'language_label',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('English', name: 'language_label', desc: '', args: []);
   }
 
   /// `اللغة`
   String get language_title {
-    return Intl.message(
-      'اللغة',
-      name: 'language_title',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('اللغة', name: 'language_title', desc: '', args: []);
   }
 
   /// `اللغة العربية`
@@ -542,22 +486,12 @@ class S {
 
   /// `English`
   String get english_lang {
-    return Intl.message(
-      'English',
-      name: 'english_lang',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('English', name: 'english_lang', desc: '', args: []);
   }
 
   /// `تطبيق`
   String get apply_button {
-    return Intl.message(
-      'تطبيق',
-      name: 'apply_button',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تطبيق', name: 'apply_button', desc: '', args: []);
   }
 
   /// `مرحبا ثراد تك !`
@@ -662,12 +596,7 @@ class S {
 
   /// `تسجيل الخروج`
   String get logout {
-    return Intl.message(
-      'تسجيل الخروج',
-      name: 'logout',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تسجيل الخروج', name: 'logout', desc: '', args: []);
   }
 
   /// `تم تسجيل الخروج بنجاح`
@@ -675,6 +604,56 @@ class S {
     return Intl.message(
       'تم تسجيل الخروج بنجاح',
       name: 'logout_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا توجد جلسة نشطة، يرجى تسجيل الدخول`
+  String get no_session_error {
+    return Intl.message(
+      'لا توجد جلسة نشطة، يرجى تسجيل الدخول',
+      name: 'no_session_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `فشل جلب بيانات الملف الشخصي`
+  String get profile_fetch_error {
+    return Intl.message(
+      'فشل جلب بيانات الملف الشخصي',
+      name: 'profile_fetch_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `فشل جلب البيانات أوفلاين`
+  String get profile_fetch_offline_error {
+    return Intl.message(
+      'فشل جلب البيانات أوفلاين',
+      name: 'profile_fetch_offline_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `فشل تعديل البيانات`
+  String get profile_update_error {
+    return Intl.message(
+      'فشل تعديل البيانات',
+      name: 'profile_update_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تعديل البيانات بنجاح`
+  String get profile_update_success {
+    return Intl.message(
+      'تم تعديل البيانات بنجاح',
+      name: 'profile_update_success',
       desc: '',
       args: [],
     );

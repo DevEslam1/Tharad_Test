@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/api/api_service.dart';
 import '../../../../core/caching/cache_service.dart';
+import '../../../../generated/l10n.dart';
 import 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
@@ -12,7 +13,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   Future<void> fetchProfile() async {
     final token = CacheService.getToken();
     if (token == null) {
-      emit(const ProfileFailure('No session found.'));
+      emit(ProfileFailure(S.current.no_session_error));
       return;
     }
 
@@ -39,10 +40,10 @@ class ProfileCubit extends Cubit<ProfileState> {
             imageUrl: imageUrl,
           ));
         } else {
-          throw Exception(data['message'] ?? 'فشل جلب البيانات');
+          throw Exception(data['message'] ?? S.current.profile_fetch_error);
         }
       } else {
-        throw Exception('فشل جلب البيانات');
+        throw Exception(S.current.profile_fetch_error);
       }
     } catch (e) {
       final cachedUsername = CacheService.getUsername();
@@ -54,9 +55,10 @@ class ProfileCubit extends Cubit<ProfileState> {
           username: cachedUsername,
           email: cachedEmail,
           imageUrl: cachedImage,
+          isOffline: true,
         ));
       } else {
-        String errorMsg = 'فشل جلب البيانات أوفلاين';
+        String errorMsg = S.current.profile_fetch_offline_error;
         if (e is DioException) {
           final data = e.response?.data;
           if (data is Map && data['message'] != null) {
@@ -117,20 +119,20 @@ class ProfileCubit extends Cubit<ProfileState> {
           );
 
           emit(ProfileUpdateSuccess(
-            message: data['message'] as String? ?? 'تم التعديل بنجاح',
+            message: data['message'] as String? ?? S.current.profile_update_success,
             username: updatedUsername,
             email: updatedEmail,
             imageUrl: updatedImage,
           ));
         } else {
-          final msg = data['message'] as String? ?? 'فشل تعديل البيانات';
+          final msg = data['message'] as String? ?? S.current.profile_update_error;
           emit(ProfileFailure(msg));
         }
       } else {
-        emit(const ProfileFailure('فشل تعديل البيانات'));
+        emit(ProfileFailure(S.current.profile_update_error));
       }
     } catch (e) {
-      String errorMsg = 'فشل تعديل البيانات';
+      String errorMsg = S.current.profile_update_error;
       if (e is DioException) {
         final data = e.response?.data;
         if (data is Map && data['message'] != null) {

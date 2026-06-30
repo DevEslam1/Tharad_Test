@@ -11,6 +11,8 @@ import '../../../../core/widgets/language_bottom_sheet.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_toast.dart';
+import '../../../../core/caching/cache_service.dart';
+import '../../../../core/helpers/validators.dart';
 import '../logic/auth_cubit.dart';
 import '../logic/auth_state.dart';
 
@@ -27,6 +29,15 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordController = TextEditingController();
   bool _isPasswordObscured = true;
   bool _isRememberMeChecked = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _isRememberMeChecked = CacheService.isRememberMe();
+    if (_isRememberMeChecked) {
+      _emailController.text = CacheService.getSavedEmail() ?? '';
+    }
+  }
 
   @override
   void dispose() {
@@ -48,6 +59,13 @@ class _LoginScreenState extends State<LoginScreen> {
             child: BlocListener<AuthCubit, AuthState>(
               listener: (context, state) {
                 if (state is AuthSuccess && state.isLogin) {
+                  if (_isRememberMeChecked) {
+                    CacheService.saveRememberMe(true);
+                    CacheService.saveSavedEmail(_emailController.text.trim());
+                  } else {
+                    CacheService.saveRememberMe(false);
+                    CacheService.saveSavedEmail('');
+                  }
                   showAppToast(
                     context: context,
                     message: S.of(context).login_success,
@@ -125,18 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _emailController,
                         hintText: S.of(context).email_placeholder,
                         keyboardType: TextInputType.emailAddress,
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return S.of(context).email_empty_error;
-                          }
-                          final emailRegex = RegExp(
-                            r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
-                          );
-                          if (!emailRegex.hasMatch(value.trim())) {
-                            return S.of(context).email_invalid_error;
-                          }
-                          return null;
-                        },
+                        validator: (value) => AppValidators.validateEmail(context, value),
                       ),
 
                       SizedBox(height: 20.h),
@@ -155,15 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _passwordController,
                         hintText: S.of(context).password_placeholder,
                         obscureText: _isPasswordObscured,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return S.of(context).password_empty_error;
-                          }
-                          if (value.length < 6) {
-                            return S.of(context).password_too_short_error;
-                          }
-                          return null;
-                        },
+                        validator: (value) => AppValidators.validatePassword(context, value),
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {

@@ -207,6 +207,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     _imagePath = state.imageUrl;
                   }
                 });
+                if (state.isOffline) {
+                  showAppToast(
+                    context: context,
+                    message: isAr ? 'أنت تعمل في وضع الأوفلاين' : 'You are working in offline mode',
+                    isSuccess: false,
+                  );
+                }
               } else if (state is ProfileUpdateSuccess) {
                 setState(() {
                   _isLoading = false;
