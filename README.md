@@ -1,4 +1,4 @@
 # testing_app
 
-A Tharad Flutter project.
+ Tharad Flutter project.
 
