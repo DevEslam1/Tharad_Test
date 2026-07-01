@@ -27,7 +27,7 @@ class AppImagePickerField extends StatelessWidget {
     final displaySubHint = subHint ?? S.of(context).photo_sub_hint;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
           label,
@@ -36,37 +36,67 @@ class AppImagePickerField extends StatelessWidget {
             fontWeight: FontWeight.w500,
             color: AppColors.textDark,
           ),
+          textAlign: TextAlign.start,
         ),
         SizedBox(height: 6.h),
         GestureDetector(
           onTap: onTap,
-          child: Container(
-            width: double.infinity,
-            height: 87.h,
-            decoration: BoxDecoration(
-              color: AppColors.fieldBg,
-              borderRadius: BorderRadius.circular(8.r),
-            ),
-            child: imagePath != null && imagePath!.isNotEmpty
-                ? ClipRRect(
-                    borderRadius: BorderRadius.circular(8.r),
-                    child: imagePath!.startsWith('http')
-                        ? Image.network(
-                            imagePath!,
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) =>
-                                const Center(child: Icon(Icons.error)),
-                          )
-                        : Image.file(
-                            File(imagePath!),
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.cover,
+          child: imagePath != null && imagePath!.isNotEmpty
+              ? Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: SizedBox(
+                    width: 150.w,
+                    height: 87.h,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.r),
+                          child: imagePath!.startsWith('http')
+                              ? Image.network(
+                                  imagePath!,
+                                  width: 150.w,
+                                  height: 87.h,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) =>
+                                      const Center(child: Icon(Icons.error)),
+                                )
+                              : Image.file(
+                                  File(imagePath!),
+                                  width: 150.w,
+                                  height: 87.h,
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
+                        Positioned(
+                          top: -6.h,
+                          left: -6.w,
+                          child: Container(
+                            width: 22.r,
+                            height: 22.r,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF2C6062),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.camera_alt_outlined,
+                              size: 12.r,
+                              color: Colors.white,
+                            ),
                           ),
-                  )
-                : CustomPaint(
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              : Container(
+                  width: double.infinity,
+                  height: 87.h,
+                  decoration: BoxDecoration(
+                    color: AppColors.fieldBg,
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  child: CustomPaint(
                     painter: _DashedBorder(),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +124,7 @@ class AppImagePickerField extends StatelessWidget {
                       ],
                     ),
                   ),
-          ),
+                ),
         ),
       ],
     );

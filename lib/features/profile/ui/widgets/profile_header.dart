@@ -13,6 +13,31 @@ class ProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bell = Container(
+      width: 28.r,
+      height: 28.r,
+      decoration: BoxDecoration(
+        color: const Color(0xFFE9EEEE).withValues(alpha: 0.2),
+        shape: BoxShape.circle,
+      ),
+      child: Icon(
+        Icons.notifications_outlined,
+        color: Colors.white,
+        size: 16.r,
+      ),
+    );
+
+    final title = Text(
+      S.of(context).profile_title,
+      style: GoogleFonts.tajawal(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w700,
+        color: Colors.white,
+      ),
+    );
+
+    final balance = SizedBox(width: 28.w);
+
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: 20.w,
@@ -30,44 +55,9 @@ class ProfileHeader extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                Container(
-                  width: 28.r,
-                  height: 28.r,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFE9EEEE).withValues(alpha: 0.2),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.notifications_outlined,
-                    color: Colors.white,
-                    size: 16.r,
-                  ),
-                ),
+                bell,
               ]
-            : [
-                Container(
-                  width: 28.r,
-                  height: 28.r,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFE9EEEE).withValues(alpha: 0.2),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.notifications_outlined,
-                    color: Colors.white,
-                    size: 16.r,
-                  ),
-                ),
-                Text(
-                  S.of(context).profile_title,
-                  style: GoogleFonts.tajawal(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(width: 28.w),
-              ],
+            : [balance, title, bell],
       ),
     );
   }

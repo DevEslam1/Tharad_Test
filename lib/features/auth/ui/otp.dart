@@ -140,6 +140,39 @@ class _OtpScreenState extends State<OtpScreen> {
     super.dispose();
   }
 
+  Widget _buildResendRow() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          S.of(context).otp_no_code,
+          style: GoogleFonts.tajawal(
+            fontSize: 12.sp,
+            color: AppColors.textGray,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        GestureDetector(
+          onTap: _seconds == 0 ? _resend : null,
+          child: Text(
+            S.of(context).otp_resend_action,
+            style: GoogleFonts.tajawal(
+              fontSize: 12.sp,
+              color: _seconds == 0
+                  ? AppColors.mainColorLight
+                  : AppColors.textGray.withValues(alpha: 0.5),
+              fontWeight: FontWeight.w700,
+              decoration: TextDecoration.underline,
+              decorationColor: _seconds == 0
+                  ? AppColors.mainColorLight
+                  : AppColors.textGray.withValues(alpha: 0.5),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final isAr = Localizations.localeOf(context).languageCode == 'ar';
@@ -225,48 +258,35 @@ class _OtpScreenState extends State<OtpScreen> {
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          S.of(context).otp_no_code,
-                          style: GoogleFonts.tajawal(
-                            fontSize: 12.sp,
-                            color: AppColors.textGray,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: _seconds == 0 ? _resend : null,
-                          child: Text(
-                            S.of(context).otp_resend_action,
-                            style: GoogleFonts.tajawal(
-                              fontSize: 12.sp,
-                              color: _seconds == 0
-                                  ? AppColors.mainColorLight
-                                  : AppColors.textGray.withValues(alpha: 0.5),
-                              fontWeight: FontWeight.w700,
-                              decoration: TextDecoration.underline,
-                              decorationColor: _seconds == 0
-                                  ? AppColors.mainColorLight
-                                  : AppColors.textGray.withValues(alpha: 0.5),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    if (_seconds > 0)
-                      Text(
-                        '00:${_seconds.toString().padLeft(2, '0')} Sec',
-                        style: GoogleFonts.tajawal(
-                          fontSize: 12.sp,
-                          color: AppColors.textGray,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                  ],
+                  children: isAr
+                      ? [
+                          if (_seconds > 0)
+                            Text(
+                              '00:${_seconds.toString().padLeft(2, '0')} Sec',
+                              style: GoogleFonts.tajawal(
+                                fontSize: 12.sp,
+                                color: AppColors.textGray,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          else
+                            const SizedBox(),
+                          _buildResendRow(),
+                        ]
+                      : [
+                          _buildResendRow(),
+                          if (_seconds > 0)
+                            Text(
+                              '00:${_seconds.toString().padLeft(2, '0')} Sec',
+                              style: GoogleFonts.tajawal(
+                                fontSize: 12.sp,
+                                color: AppColors.textGray,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          else
+                            const SizedBox(),
+                        ],
                 ),
 
                 SizedBox(height: 32.h),

@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Align(
-                        alignment: Alignment.centerLeft,
+                        alignment: AlignmentDirectional.centerEnd,
                         child: LanguageSwitcherButton(
                           label: S.of(context).language_label,
                           onTap: () {
@@ -185,20 +185,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           GestureDetector(
-                            onTap: () {},
-                            child: Text(
-                              S.of(context).forgot_password,
-                              style: GoogleFonts.tajawal(
-                                fontSize: 11.sp,
-                                color: AppColors.greenNormal,
-                                fontWeight: FontWeight.w500,
-                                decoration: TextDecoration.underline,
-                                decorationColor: AppColors.greenNormal,
-                              ),
-                            ),
-                          ),
-
-                          GestureDetector(
                             onTap: () {
                               setState(() {
                                 _isRememberMeChecked = !_isRememberMeChecked;
@@ -207,14 +193,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Text(
-                                  S.of(context).remember_me,
-                                  style: GoogleFonts.tajawal(
-                                    fontSize: 11.sp,
-                                    color: AppColors.textDark,
-                                  ),
-                                ),
-                                SizedBox(width: 6.w),
                                 Container(
                                   width: 18.r,
                                   height: 18.r,
@@ -236,7 +214,29 @@ class _LoginScreenState extends State<LoginScreen> {
                                         )
                                       : null,
                                 ),
+                                SizedBox(width: 6.w),
+                                Text(
+                                  S.of(context).remember_me,
+                                  style: GoogleFonts.tajawal(
+                                    fontSize: 11.sp,
+                                    color: AppColors.textDark,
+                                  ),
+                                ),
                               ],
+                            ),
+                          ),
+
+                          GestureDetector(
+                            onTap: () {},
+                            child: Text(
+                              S.of(context).forgot_password,
+                              style: GoogleFonts.tajawal(
+                                fontSize: 11.sp,
+                                color: AppColors.greenNormal,
+                                fontWeight: FontWeight.w500,
+                                decoration: TextDecoration.underline,
+                                decorationColor: AppColors.greenNormal,
+                              ),
                             ),
                           ),
                         ],

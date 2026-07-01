@@ -53,7 +53,7 @@ class _ProfileFormState extends State<ProfileForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Align(
-            alignment: Alignment.centerLeft,
+            alignment: AlignmentDirectional.centerEnd,
             child: LanguageSwitcherButton(
               label: S.of(context).language_label,
               onTap: () {
