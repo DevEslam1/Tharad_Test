@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../logic/language_cubit.dart';
 import '../theming/colors.dart';
+import '../theming/styles.dart';
 import 'app_button.dart';
 import '../../generated/l10n.dart';
 
@@ -46,11 +46,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
 
           Text(
             S.of(context).language_title,
-            style: GoogleFonts.tajawal(
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w700,
-              color: AppColors.textDark,
-            ),
+            style: AppTextStyles.font18TextDarkBold,
           ),
           SizedBox(height: 24.h),
 
@@ -122,11 +118,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
 
             Text(
               label,
-              style: GoogleFonts.tajawal(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w500,
-                color: AppColors.textDark,
-              ),
+              style: AppTextStyles.font14TextDarkMedium,
             ),
           ],
         ),

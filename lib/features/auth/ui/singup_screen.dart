@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theming/colors.dart';
+import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/app_button.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../core/widgets/app_image_picker_field.dart';
@@ -98,11 +98,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       Center(
                         child: Text(
                           S.of(context).signup_title,
-                          style: GoogleFonts.tajawal(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.textDark,
-                          ),
+                          style: AppTextStyles.font22TextDarkBold,
                         ),
                       ),
 
@@ -120,11 +116,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                       Text(
                         S.of(context).full_name,
-                        style: GoogleFonts.tajawal(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.textDark,
-                        ),
+                        style: AppTextStyles.font10TextDarkMedium,
                       ),
                       SizedBox(height: 6.h),
 
@@ -139,11 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                       Text(
                         S.of(context).email,
-                        style: GoogleFonts.tajawal(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.textDark,
-                        ),
+                        style: AppTextStyles.font10TextDarkMedium,
                       ),
                       SizedBox(height: 6.h),
 
@@ -158,11 +146,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                       Text(
                         S.of(context).password,
-                        style: GoogleFonts.tajawal(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.textDark,
-                        ),
+                        style: AppTextStyles.font10TextDarkMedium,
                       ),
                       SizedBox(height: 6.h),
 
@@ -197,11 +181,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                       Text(
                         S.of(context).confirm_password,
-                        style: GoogleFonts.tajawal(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.textDark,
-                        ),
+                        style: AppTextStyles.font10TextDarkMedium,
                       ),
                       SizedBox(height: 6.h),
 
@@ -258,20 +238,11 @@ class _SignupScreenState extends State<SignupScreen> {
                           textAlign: TextAlign.center,
                           text: TextSpan(
                             text: S.of(context).have_account,
-                            style: GoogleFonts.tajawal(
-                              fontSize: 12.sp,
-                              color: AppColors.textDark,
-                            ),
+                            style: AppTextStyles.font13TextDarkNormal,
                             children: [
                               TextSpan(
-                                text: S.of(context).login_link,
-                                style: GoogleFonts.tajawal(
-                                  fontSize: 12.sp,
-                                  color: AppColors.mainColorLight,
-                                  fontWeight: FontWeight.w700,
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: AppColors.mainColorLight,
-                                ),
+                                text: S.of(context).login_button,
+                                style: AppTextStyles.font13MainColorLightBoldUnderline,
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
                                     Navigator.pop(context);

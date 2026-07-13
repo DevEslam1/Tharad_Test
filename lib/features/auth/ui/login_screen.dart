@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/theming/font_family_helper.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
@@ -119,7 +119,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       Center(
                         child: Text(
                           S.of(context).login_title,
-                          style: GoogleFonts.tajawal(
+                          style: TextStyle(
+                            fontFamily: FontFamilyHelper.tajawal,
                             fontSize: 22.sp,
                             fontWeight: FontWeight.w700,
                             color: AppColors.textDark,
@@ -131,7 +132,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       Text(
                         S.of(context).email,
-                        style: GoogleFonts.tajawal(
+                        style: TextStyle(
+                          fontFamily: FontFamilyHelper.tajawal,
                           fontSize: 13.sp,
                           fontWeight: FontWeight.w500,
                           color: AppColors.textDark,
@@ -150,7 +152,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       Text(
                         S.of(context).password,
-                        style: GoogleFonts.tajawal(
+                        style: TextStyle(
+                          fontFamily: FontFamilyHelper.tajawal,
                           fontSize: 13.sp,
                           fontWeight: FontWeight.w500,
                           color: AppColors.textDark,
@@ -216,7 +219,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 SizedBox(width: 6.w),
                                 Text(
                                   S.of(context).remember_me,
-                                  style: GoogleFonts.tajawal(
+                                  style: TextStyle(
+                                    fontFamily: FontFamilyHelper.tajawal,
                                     fontSize: 11.sp,
                                     color: AppColors.textDark,
                                   ),
@@ -229,7 +233,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             onTap: () {},
                             child: Text(
                               S.of(context).forgot_password,
-                              style: GoogleFonts.tajawal(
+                              style: TextStyle(
+                                fontFamily: FontFamilyHelper.tajawal,
                                 fontSize: 11.sp,
                                 color: AppColors.greenNormal,
                                 fontWeight: FontWeight.w500,
@@ -280,14 +285,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           textAlign: TextAlign.center,
                           text: TextSpan(
                             text: S.of(context).no_account,
-                            style: GoogleFonts.tajawal(
+                            style: TextStyle(
+                              fontFamily: FontFamilyHelper.tajawal,
                               fontSize: 13.sp,
                               color: AppColors.textDark,
                             ),
                             children: [
                               TextSpan(
                                 text: S.of(context).create_new_account,
-                                style: GoogleFonts.tajawal(
+                                style: TextStyle(
+                                  fontFamily: FontFamilyHelper.tajawal,
                                   fontSize: 13.sp,
                                   color: AppColors.mainColorLight,
                                   fontWeight: FontWeight.w700,

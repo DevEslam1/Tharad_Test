@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../theming/colors.dart';
+import '../theming/styles.dart';
 import '../../generated/l10n.dart';
 
 class PasswordRequirementsWidget extends StatelessWidget {
@@ -66,11 +66,9 @@ class PasswordRequirementsWidget extends StatelessWidget {
         SizedBox(width: 6.w),
         Text(
           text,
-          style: GoogleFonts.tajawal(
-            fontSize: 11.sp,
-            color: isMet ? AppColors.greenNormal : AppColors.textGray,
-            fontWeight: isMet ? FontWeight.bold : FontWeight.normal,
-          ),
+          style: isMet
+              ? AppTextStyles.font11GreenNormalBold
+              : AppTextStyles.font11TextGrayNormal,
         ),
       ],
     );

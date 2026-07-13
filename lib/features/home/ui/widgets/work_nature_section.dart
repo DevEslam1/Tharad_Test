@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 
 class WorkNatureSection extends StatelessWidget {
@@ -13,11 +13,7 @@ class WorkNatureSection extends StatelessWidget {
       children: [
         Text(
           S.of(context).work_nature_title,
-          style: GoogleFonts.tajawal(
-            fontSize: 20.sp,
-            fontWeight: FontWeight.w700,
-            color: const Color(0xFF1F0606),
-          ),
+          style: AppTextStyles.font20BrownBold,
           textAlign: TextAlign.start,
         ),
         SizedBox(height: 16.h),
@@ -52,11 +48,7 @@ class WorkNatureSection extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              style: GoogleFonts.tajawal(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w500,
-                color: const Color(0xFF998C8C),
-              ),
+              style: AppTextStyles.font12TextGrayMedium,
               textAlign: TextAlign.start,
             ),
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../theming/colors.dart';
+import '../theming/styles.dart';
 import '../../generated/l10n.dart';
 
 class AppBottomNavBar extends StatelessWidget {
@@ -75,7 +75,7 @@ class _NavItem extends StatelessWidget {
             SizedBox(height: 4.h),
             Text(
               label,
-              style: GoogleFonts.tajawal(fontSize: 12.sp, color: color),
+              style: AppTextStyles.font12TextGrayMedium.copyWith(color: color),
             ),
           ],
         ),

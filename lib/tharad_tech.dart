@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/logic/language_cubit.dart';
 import 'core/routing/app_router.dart';
 import 'core/theming/colors.dart';
+import 'core/theming/font_family_helper.dart';
 
 class TharadTech extends StatelessWidget {
   const TharadTech({super.key});
@@ -36,6 +37,7 @@ class TharadTech extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 title: 'Tharad App',
                 theme: ThemeData(
+                  fontFamily: FontFamilyHelper.tajawal,
                   colorScheme: ColorScheme.fromSeed(
                     seedColor: AppColors.mainColorDark,
                   ),

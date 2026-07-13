@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../theming/colors.dart';
+import '../theming/styles.dart';
 
 class AppButton extends StatelessWidget {
   final String text;
@@ -44,11 +44,7 @@ class AppButton extends StatelessWidget {
                   )
                 : Text(
                     text,
-                    style: GoogleFonts.tajawal(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
+                    style: AppTextStyles.font14WhiteBold,
                   ),
           ),
         ),

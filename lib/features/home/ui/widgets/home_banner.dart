@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 
 class HomeBanner extends StatelessWidget {
@@ -27,11 +27,7 @@ class HomeBanner extends StatelessWidget {
           SizedBox(height: 12.h),
           Text(
             S.of(context).home_banner_title,
-            style: GoogleFonts.tajawal(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w700,
-              color: Colors.white,
-            ),
+            style: AppTextStyles.font16WhiteBold,
             textAlign: TextAlign.center,
           ),
         ],

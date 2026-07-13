@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../theming/colors.dart';
+import '../theming/styles.dart';
 import '../../generated/l10n.dart';
 
 class AppImagePickerField extends StatelessWidget {
@@ -31,11 +31,7 @@ class AppImagePickerField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: GoogleFonts.tajawal(
-            fontSize: 10.sp,
-            fontWeight: FontWeight.w500,
-            color: AppColors.textDark,
-          ),
+          style: AppTextStyles.font10TextDarkMedium,
           textAlign: TextAlign.start,
         ),
         SizedBox(height: 6.h),
@@ -109,17 +105,11 @@ class AppImagePickerField extends StatelessWidget {
                         SizedBox(height: 4.h),
                         Text(
                           displayHint,
-                          style: GoogleFonts.tajawal(
-                            fontSize: 8.sp,
-                            color: AppColors.textGray,
-                          ),
+                          style: AppTextStyles.font8TextGrayNormal,
                         ),
                         Text(
                           displaySubHint,
-                          style: GoogleFonts.tajawal(
-                            fontSize: 6.sp,
-                            color: AppColors.textGray,
-                          ),
+                          style: AppTextStyles.font6TextGrayNormal,
                         ),
                       ],
                     ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theming/colors.dart';
+import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_image_picker_field.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
@@ -69,11 +69,7 @@ class _ProfileFormState extends State<ProfileForm> {
           SizedBox(height: 20.h),
           Text(
             S.of(context).full_name,
-            style: GoogleFonts.tajawal(
-              fontSize: 10.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.textDark,
-            ),
+            style: AppTextStyles.font10TextDarkMedium,
           ),
           SizedBox(height: 6.h),
           AppTextFormField(
@@ -84,11 +80,7 @@ class _ProfileFormState extends State<ProfileForm> {
           SizedBox(height: 12.h),
           Text(
             S.of(context).email,
-            style: GoogleFonts.tajawal(
-              fontSize: 10.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.textDark,
-            ),
+            style: AppTextStyles.font10TextDarkMedium,
           ),
           SizedBox(height: 6.h),
           AppTextFormField(
@@ -108,11 +100,7 @@ class _ProfileFormState extends State<ProfileForm> {
           SizedBox(height: 12.h),
           Text(
             S.of(context).old_password,
-            style: GoogleFonts.tajawal(
-              fontSize: 10.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.textDark,
-            ),
+            style: AppTextStyles.font10TextDarkMedium,
           ),
           SizedBox(height: 6.h),
           AppTextFormField(
@@ -137,11 +125,7 @@ class _ProfileFormState extends State<ProfileForm> {
           SizedBox(height: 12.h),
           Text(
             S.of(context).new_password,
-            style: GoogleFonts.tajawal(
-              fontSize: 10.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.textDark,
-            ),
+            style: AppTextStyles.font10TextDarkMedium,
           ),
           SizedBox(height: 6.h),
           AppTextFormField(
@@ -171,11 +155,7 @@ class _ProfileFormState extends State<ProfileForm> {
           SizedBox(height: 12.h),
           Text(
             S.of(context).confirm_new_password,
-            style: GoogleFonts.tajawal(
-              fontSize: 10.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.textDark,
-            ),
+            style: AppTextStyles.font10TextDarkMedium,
           ),
           SizedBox(height: 6.h),
           AppTextFormField(
@@ -209,11 +189,7 @@ class _ProfileFormState extends State<ProfileForm> {
             onPressed: widget.onLogout,
             child: Text(
               S.of(context).logout,
-              style: GoogleFonts.tajawal(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w700,
-                color: Colors.red,
-              ),
+              style: AppTextStyles.font14RedBold,
             ),
           ),
           SizedBox(height: 20.h),

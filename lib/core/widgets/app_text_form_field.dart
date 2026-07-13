@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../theming/colors.dart';
+import '../theming/styles.dart';
 
 class AppTextFormField extends StatelessWidget {
   final String? labelText;
@@ -40,11 +40,7 @@ class AppTextFormField extends StatelessWidget {
         if (labelText != null) ...[
           Text(
             labelText!,
-            style: GoogleFonts.tajawal(
-              fontSize: 13.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.textDark,
-            ),
+            style: AppTextStyles.font13TextDarkMedium,
           ),
           SizedBox(height: 6.h),
         ],
@@ -58,16 +54,10 @@ class AppTextFormField extends StatelessWidget {
           validator: validator,
           cursorColor: AppColors.mainColorDark,
           textAlign: TextAlign.start,
-          style: GoogleFonts.tajawal(
-            fontSize: 13.sp,
-            color: AppColors.textTeal,
-          ),
+          style: AppTextStyles.font13TextTealNormal,
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: GoogleFonts.tajawal(
-              fontSize: 13.sp,
-              color: AppColors.textTeal.withValues(alpha: 0.5),
-            ),
+            hintStyle: AppTextStyles.font13TextTealNormal50,
             filled: true,
             fillColor: AppColors.fieldBg,
             contentPadding: EdgeInsets.symmetric(
@@ -86,7 +76,7 @@ class AppTextFormField extends StatelessWidget {
                   )
                 : null,
             errorText: errorText,
-            errorStyle: GoogleFonts.tajawal(fontSize: 10.sp, color: Colors.red),
+            errorStyle: AppTextStyles.font10RedNormal,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
               borderSide: const BorderSide(color: AppColors.fieldBorder),

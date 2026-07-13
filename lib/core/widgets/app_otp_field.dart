@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../theming/colors.dart';
+import '../theming/styles.dart';
 
 class AppOtpField extends StatelessWidget {
   final TextEditingController controller;
@@ -35,11 +35,7 @@ class AppOtpField extends StatelessWidget {
         maxLength: 1,
         cursorColor: AppColors.mainColorDark,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-        style: GoogleFonts.tajawal(
-          fontSize: 20.sp,
-          fontWeight: FontWeight.w700,
-          color: AppColors.textDark,
-        ),
+        style: AppTextStyles.font20TextDarkBold,
         decoration: InputDecoration(
           counterText: '',
           filled: true,

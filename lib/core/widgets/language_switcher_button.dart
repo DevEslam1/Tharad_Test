@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../theming/colors.dart';
+import '../theming/styles.dart';
 
 class LanguageSwitcherButton extends StatelessWidget {
   final String label;
@@ -20,11 +20,7 @@ class LanguageSwitcherButton extends StatelessWidget {
           SizedBox(width: 6.w),
           Text(
             label,
-            style: GoogleFonts.tajawal(
-              fontSize: 13.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.textDark,
-            ),
+            style: AppTextStyles.font13TextDarkMedium,
           ),
         ],
       ),

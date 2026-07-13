@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 
 class ProfileHeader extends StatelessWidget {
@@ -29,11 +29,7 @@ class ProfileHeader extends StatelessWidget {
 
     final title = Text(
       S.of(context).profile_title,
-      style: GoogleFonts.tajawal(
-        fontSize: 16.sp,
-        fontWeight: FontWeight.w700,
-        color: Colors.white,
-      ),
+      style: AppTextStyles.font16WhiteBold,
     );
 
     final balance = SizedBox(width: 28.w);
@@ -49,11 +45,7 @@ class ProfileHeader extends StatelessWidget {
             ? [
                 Text(
                   S.of(context).home_welcome,
-                  style: GoogleFonts.tajawal(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
+                  style: AppTextStyles.font16WhiteBold,
                 ),
                 bell,
               ]

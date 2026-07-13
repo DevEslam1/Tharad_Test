@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 import 'package:dio/dio.dart';
 import '../../../../core/api/api_service.dart';
 import '../../../../core/theming/colors.dart';
+import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_otp_field.dart';
 import '../../../../core/widgets/app_toast.dart';
@@ -146,18 +146,13 @@ class _OtpScreenState extends State<OtpScreen> {
       children: [
         Text(
           S.of(context).otp_no_code,
-          style: GoogleFonts.tajawal(
-            fontSize: 12.sp,
-            color: AppColors.textGray,
-            fontWeight: FontWeight.w500,
-          ),
+          style: AppTextStyles.font12TextGrayMedium,
         ),
         GestureDetector(
           onTap: _seconds == 0 ? _resend : null,
           child: Text(
             S.of(context).otp_resend_action,
-            style: GoogleFonts.tajawal(
-              fontSize: 12.sp,
+            style: AppTextStyles.font12TextGrayMedium.copyWith(
               color: _seconds == 0
                   ? AppColors.mainColorLight
                   : AppColors.textGray.withValues(alpha: 0.5),
@@ -202,11 +197,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 Text(
                   S.of(context).otp_title,
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.tajawal(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.textDark,
-                  ),
+                  style: AppTextStyles.font20TextDarkBold,
                 ),
 
                 SizedBox(height: 8.h),
@@ -214,11 +205,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 Text(
                   S.of(context).otp_subtitle,
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.tajawal(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.textGray,
-                  ),
+                  style: AppTextStyles.font12TextGrayMedium,
                 ),
 
                 SizedBox(height: 32.h),
@@ -263,11 +250,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           if (_seconds > 0)
                             Text(
                               '00:${_seconds.toString().padLeft(2, '0')} Sec',
-                              style: GoogleFonts.tajawal(
-                                fontSize: 12.sp,
-                                color: AppColors.textGray,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: AppTextStyles.font12TextGrayMedium,
                             )
                           else
                             const SizedBox(),
@@ -278,11 +261,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           if (_seconds > 0)
                             Text(
                               '00:${_seconds.toString().padLeft(2, '0')} Sec',
-                              style: GoogleFonts.tajawal(
-                                fontSize: 12.sp,
-                                color: AppColors.textGray,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: AppTextStyles.font12TextGrayMedium,
                             )
                           else
                             const SizedBox(),

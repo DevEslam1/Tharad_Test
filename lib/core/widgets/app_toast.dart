@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../theming/styles.dart';
 
 OverlayEntry? _currentToastEntry;
 
@@ -42,11 +42,7 @@ void showAppToast({
           child: Center(
             child: Text(
               message,
-              style: GoogleFonts.alexandria(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
-              ),
+              style: AppTextStyles.font12WhiteMedium,
               textAlign: TextAlign.center,
             ),
           ),
