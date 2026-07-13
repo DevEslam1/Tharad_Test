@@ -162,7 +162,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _passwordController,
                         hintText: S.of(context).password_placeholder,
                         obscureText: _isPasswordObscured,
-                        validator: (value) => AppValidators.validatePassword(context, value),
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -251,10 +250,23 @@ class _LoginScreenState extends State<LoginScreen> {
                             isLoading: state is AuthLoading,
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                context.read<AuthCubit>().login(
-                                  email: _emailController.text.trim(),
-                                  password: _passwordController.text,
+                                final passwordError =
+                                    AppValidators.validatePassword(
+                                  context,
+                                  _passwordController.text,
                                 );
+                                if (passwordError != null) {
+                                  showAppToast(
+                                    context: context,
+                                    message: passwordError,
+                                    isSuccess: false,
+                                  );
+                                  return;
+                                }
+                                context.read<AuthCubit>().login(
+                                      email: _emailController.text.trim(),
+                                      password: _passwordController.text,
+                                    );
                               }
                             },
                           );
