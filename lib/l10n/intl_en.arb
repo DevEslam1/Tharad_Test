@@ -80,5 +80,9 @@
   "profile_fetch_error": "Failed to fetch profile details",
   "profile_fetch_offline_error": "Failed to fetch details offline",
   "profile_update_error": "Failed to update profile details",
-  "profile_update_success": "Profile updated successfully"
+  "profile_update_success": "Profile updated successfully",
+  "gallery_label": "Gallery",
+  "camera_label": "Camera",
+  "image_size_error": "Image size exceeds 5MB",
+  "offline_mode_msg": "You are working in offline mode"
 }

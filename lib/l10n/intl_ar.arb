@@ -80,5 +80,9 @@
   "profile_fetch_error": "فشل جلب بيانات الملف الشخصي",
   "profile_fetch_offline_error": "فشل جلب البيانات أوفلاين",
   "profile_update_error": "فشل تعديل البيانات",
-  "profile_update_success": "تم تعديل البيانات بنجاح"
+  "profile_update_success": "تم تعديل البيانات بنجاح",
+  "gallery_label": "معرض الصور",
+  "camera_label": "الكاميرا",
+  "image_size_error": "حجم الصورة يتعدى 5 ميجابايت",
+  "offline_mode_msg": "أنت تعمل في وضع الأوفلاين"
 }

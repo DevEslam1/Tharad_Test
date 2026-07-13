@@ -658,6 +658,41 @@ class S {
       args: [],
     );
   }
+
+  /// `معرض الصور`
+  String get gallery_label {
+    return Intl.message(
+      'معرض الصور',
+      name: 'gallery_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الكاميرا`
+  String get camera_label {
+    return Intl.message('الكاميرا', name: 'camera_label', desc: '', args: []);
+  }
+
+  /// `حجم الصورة يتعدى 5 ميجابايت`
+  String get image_size_error {
+    return Intl.message(
+      'حجم الصورة يتعدى 5 ميجابايت',
+      name: 'image_size_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أنت تعمل في وضع الأوفلاين`
+  String get offline_mode_msg {
+    return Intl.message(
+      'أنت تعمل في وضع الأوفلاين',
+      name: 'offline_mode_msg',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

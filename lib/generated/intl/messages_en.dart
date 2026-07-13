@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "apply_button": MessageLookupByLibrary.simpleMessage("Apply"),
     "arabic_lang": MessageLookupByLibrary.simpleMessage("اللغة العربية"),
+    "camera_label": MessageLookupByLibrary.simpleMessage("Camera"),
     "confirm_new_password": MessageLookupByLibrary.simpleMessage(
       "Confirm New Password",
     ),
@@ -58,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgot_password": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
     "full_name_placeholder": MessageLookupByLibrary.simpleMessage("Ahmed Ali"),
+    "gallery_label": MessageLookupByLibrary.simpleMessage("Gallery"),
     "have_account": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
@@ -67,6 +69,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "home_welcome": MessageLookupByLibrary.simpleMessage(
       "Welcome Tharad Tech!",
+    ),
+    "image_size_error": MessageLookupByLibrary.simpleMessage(
+      "Image size exceeds 5MB",
     ),
     "language_label": MessageLookupByLibrary.simpleMessage("العربية"),
     "language_title": MessageLookupByLibrary.simpleMessage("Language"),
@@ -93,6 +98,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "no_session_error": MessageLookupByLibrary.simpleMessage(
       "No active session found, please log in",
+    ),
+    "offline_mode_msg": MessageLookupByLibrary.simpleMessage(
+      "You are working in offline mode",
     ),
     "old_password": MessageLookupByLibrary.simpleMessage("Old Password"),
     "otp_confirm": MessageLookupByLibrary.simpleMessage("Continue"),
