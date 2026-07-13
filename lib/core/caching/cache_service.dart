@@ -79,7 +79,11 @@ class CacheService {
   }
 
   static Future<void> clearSession() async {
-    await _getBox().clear();
+    final box = _getBox();
+    await box.delete(tokenKey);
+    await box.delete(usernameKey);
+    await box.delete(emailKey);
+    await box.delete(imageKey);
   }
 
   static Future<void> saveLanguage(String langCode) async {
