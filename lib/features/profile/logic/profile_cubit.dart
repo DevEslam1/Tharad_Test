@@ -3,6 +3,7 @@ import '../../../../core/api/api_service.dart';
 import '../../../../core/caching/cache_service.dart';
 import '../../../../core/network/error_handler.dart';
 import '../../../../generated/l10n.dart';
+import '../data/models/profile_response.dart';
 import 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
@@ -22,25 +23,25 @@ class ProfileCubit extends Cubit<ProfileState> {
     try {
       final response = await _apiService.getProfileDetails(token: token);
       if (response.statusCode == 200 && response.data != null) {
-        final data = response.data;
-        if (data['status'] == 'success') {
-          final username = data['data']['username'] as String;
-          final email = data['data']['email'] as String;
-          final imageUrl = data['data']['image'] as String?;
-
+        final profileResponse =
+            ProfileResponse.fromJson(response.data as Map<String, dynamic>);
+        if (profileResponse.status == 'success' && profileResponse.data != null) {
+          final profileData = profileResponse.data!;
           await CacheService.saveProfile(
-            username: username,
-            email: email,
-            imageUrl: imageUrl,
+            username: profileData.username,
+            email: profileData.email,
+            imageUrl: profileData.image,
           );
 
           emit(ProfileGetSuccess(
-            username: username,
-            email: email,
-            imageUrl: imageUrl,
+            username: profileData.username,
+            email: profileData.email,
+            imageUrl: profileData.image,
           ));
         } else {
-          throw Exception(data['message'] ?? S.current.profile_fetch_error);
+          throw Exception(
+            profileResponse.message ?? S.current.profile_fetch_error,
+          );
         }
       } else {
         throw Exception(S.current.profile_fetch_error);
@@ -97,27 +98,24 @@ class ProfileCubit extends Cubit<ProfileState> {
       );
 
       if (response.statusCode == 200 && response.data != null) {
-        final data = response.data;
-        if (data['status'] == 'success') {
-          final updatedUser = data['data'];
-          final updatedUsername = updatedUser['username'] as String;
-          final updatedEmail = updatedUser['email'] as String;
-          final updatedImage = updatedUser['image'] as String?;
-
+        final profileResponse =
+            ProfileResponse.fromJson(response.data as Map<String, dynamic>);
+        if (profileResponse.status == 'success' && profileResponse.data != null) {
+          final profileData = profileResponse.data!;
           await CacheService.saveProfile(
-            username: updatedUsername,
-            email: updatedEmail,
-            imageUrl: updatedImage,
+            username: profileData.username,
+            email: profileData.email,
+            imageUrl: profileData.image,
           );
 
           emit(ProfileUpdateSuccess(
-            message: data['message'] as String? ?? S.current.profile_update_success,
-            username: updatedUsername,
-            email: updatedEmail,
-            imageUrl: updatedImage,
+            message: profileResponse.message ?? S.current.profile_update_success,
+            username: profileData.username,
+            email: profileData.email,
+            imageUrl: profileData.image,
           ));
         } else {
-          final msg = data['message'] as String? ?? S.current.profile_update_error;
+          final msg = profileResponse.message ?? S.current.profile_update_error;
           emit(ProfileFailure(msg));
         }
       } else {

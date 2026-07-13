@@ -3,6 +3,7 @@ import '../../../../core/api/api_service.dart';
 import '../../../../core/caching/cache_service.dart';
 import '../../../../core/network/error_handler.dart';
 import '../../../../generated/l10n.dart';
+import '../data/models/login_response.dart';
 import 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -20,19 +21,18 @@ class AuthCubit extends Cubit<AuthState> {
       );
 
       if (response.statusCode == 200 && response.data != null) {
-        final data = response.data;
-        if (data['status'] == 'success') {
-          final token = data['data']['token'] as String;
-          final username = data['data']['username'] as String;
-          final userEmail = data['data']['email'] as String;
-
-          // Save to Hive (which is now encrypted)
-          await CacheService.saveToken(token);
-          await CacheService.saveProfile(username: username, email: userEmail);
-
-          emit(AuthSuccess(token: token, isLogin: true));
+        final loginResponse =
+            LoginResponse.fromJson(response.data as Map<String, dynamic>);
+        if (loginResponse.status == 'success' && loginResponse.data != null) {
+          final loginData = loginResponse.data!;
+          await CacheService.saveToken(loginData.token);
+          await CacheService.saveProfile(
+            username: loginData.username,
+            email: loginData.email,
+          );
+          emit(AuthSuccess(token: loginData.token, isLogin: true));
         } else {
-          final msg = data['message'] as String? ?? S.current.login_failure;
+          final msg = loginResponse.message ?? S.current.login_failure;
           emit(AuthFailure(msg));
         }
       } else {
