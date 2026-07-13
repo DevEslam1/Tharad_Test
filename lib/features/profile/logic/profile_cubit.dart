@@ -1,7 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/api/api_service.dart';
 import '../../../../core/caching/cache_service.dart';
+import '../../../../core/network/error_handler.dart';
 import '../../../../generated/l10n.dart';
 import 'profile_state.dart';
 
@@ -58,15 +58,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           isOffline: true,
         ));
       } else {
-        String errorMsg = S.current.profile_fetch_offline_error;
-        if (e is DioException) {
-          final data = e.response?.data;
-          if (data is Map && data['message'] != null) {
-            errorMsg = data['message'] as String;
-          }
-        } else {
-          errorMsg = e.toString();
-        }
+        final errorMsg = ErrorHandler.handle(e, S.current.profile_fetch_offline_error);
         emit(ProfileFailure(errorMsg));
       }
     }
@@ -132,15 +124,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         emit(ProfileFailure(S.current.profile_update_error));
       }
     } catch (e) {
-      String errorMsg = S.current.profile_update_error;
-      if (e is DioException) {
-        final data = e.response?.data;
-        if (data is Map && data['message'] != null) {
-          errorMsg = data['message'] as String;
-        }
-      } else {
-        errorMsg = e.toString();
-      }
+      final errorMsg = ErrorHandler.handle(e, S.current.profile_update_error);
       emit(ProfileFailure(errorMsg));
     }
   }

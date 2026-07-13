@@ -295,7 +295,7 @@ class _SignupScreenState extends State<SignupScreen> {
           children: [
             ListTile(
               leading: const Icon(Icons.photo_library),
-              title: const Text('معرض الصور / Gallery'),
+              title: Text(S.of(context).gallery_label),
               onTap: () async {
                 Navigator.pop(bottomSheetContext);
                 await _processImagePick(context, ImageSource.gallery);
@@ -303,7 +303,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.camera_alt),
-              title: const Text('الكاميرا / Camera'),
+              title: Text(S.of(context).camera_label),
               onTap: () async {
                 Navigator.pop(bottomSheetContext);
                 await _processImagePick(context, ImageSource.camera);
@@ -330,7 +330,7 @@ class _SignupScreenState extends State<SignupScreen> {
         if (context.mounted) {
           showAppToast(
             context: context,
-            message: 'حجم الصورة يتعدى 5 ميجابايت / Size exceeds 5MB',
+            message: S.of(context).image_size_error,
             isSuccess: false,
           );
         }

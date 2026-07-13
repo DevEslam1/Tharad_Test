@@ -34,7 +34,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         if (labelText != null) ...[
@@ -57,7 +57,7 @@ class AppTextFormField extends StatelessWidget {
           readOnly: readOnly,
           validator: validator,
           cursorColor: AppColors.mainColorDark,
-          textAlign: TextAlign.right,
+          textAlign: TextAlign.start,
           style: GoogleFonts.tajawal(
             fontSize: 13.sp,
             color: AppColors.textTeal,

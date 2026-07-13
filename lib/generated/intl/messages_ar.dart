@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "about_training_title": MessageLookupByLibrary.simpleMessage("عن التدريب"),
     "apply_button": MessageLookupByLibrary.simpleMessage("تطبيق"),
     "arabic_lang": MessageLookupByLibrary.simpleMessage("اللغة العربية"),
+    "camera_label": MessageLookupByLibrary.simpleMessage("الكاميرا"),
     "confirm_new_password": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور الجديدة",
     ),
@@ -58,12 +59,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
     "full_name_placeholder": MessageLookupByLibrary.simpleMessage("أحمد علي"),
+    "gallery_label": MessageLookupByLibrary.simpleMessage("معرض الصور"),
     "have_account": MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟ "),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "home_banner_title": MessageLookupByLibrary.simpleMessage(
       "تدريب Flutter لبناء تطبيقات موبايل حقيقية",
     ),
     "home_welcome": MessageLookupByLibrary.simpleMessage("مرحبا ثراد تك !"),
+    "image_size_error": MessageLookupByLibrary.simpleMessage(
+      "حجم الصورة يتعدى 5 ميجابايت",
+    ),
     "language_label": MessageLookupByLibrary.simpleMessage("English"),
     "language_title": MessageLookupByLibrary.simpleMessage("اللغة"),
     "login_button": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -85,6 +90,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟ "),
     "no_session_error": MessageLookupByLibrary.simpleMessage(
       "لا توجد جلسة نشطة، يرجى تسجيل الدخول",
+    ),
+    "offline_mode_msg": MessageLookupByLibrary.simpleMessage(
+      "أنت تعمل في وضع الأوفلاين",
     ),
     "old_password": MessageLookupByLibrary.simpleMessage("كلمة المرور القديمة"),
     "otp_confirm": MessageLookupByLibrary.simpleMessage("المتابعة"),

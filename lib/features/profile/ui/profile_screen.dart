@@ -99,8 +99,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       if (!context.mounted) return;
       if (megaBytes > 5) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('حجم الصورة يجب أن يكون أقل من 5 ميجابايت'),
+          SnackBar(
+            content: Text(S.of(context).image_size_error),
             backgroundColor: Colors.red,
           ),
         );
@@ -128,7 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             ListTile(
               leading: const Icon(Icons.photo_library),
-              title: const Text('معرض الصور / Gallery'),
+              title: Text(S.of(context).gallery_label),
               onTap: () async {
                 Navigator.pop(bottomSheetContext);
                 await _processImagePick(context, ImageSource.gallery);
@@ -136,7 +136,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.camera_alt),
-              title: const Text('الكاميرا / Camera'),
+              title: Text(S.of(context).camera_label),
               onTap: () async {
                 Navigator.pop(bottomSheetContext);
                 await _processImagePick(context, ImageSource.camera);
@@ -163,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         if (context.mounted) {
           showAppToast(
             context: context,
-            message: 'حجم الصورة يتعدى 5 ميجابايت / Size exceeds 5MB',
+            message: S.of(context).image_size_error,
             isSuccess: false,
           );
         }
@@ -210,7 +210,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 if (state.isOffline) {
                   showAppToast(
                     context: context,
-                    message: isAr ? 'أنت تعمل في وضع الأوفلاين' : 'You are working in offline mode',
+                    message: S.of(context).offline_mode_msg,
                     isSuccess: false,
                   );
                 }
