@@ -20,6 +20,14 @@ class AppValidators {
     if (value.length < 6) {
       return S.of(context).password_too_short_error;
     }
+    final hasUppercase = RegExp(r'[A-Z]').hasMatch(value);
+    final hasLowercase = RegExp(r'[a-z]').hasMatch(value);
+    final hasDigits = RegExp(r'[0-9]').hasMatch(value);
+    final hasSpecialChar = RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value);
+
+    if (!hasUppercase || !hasLowercase || !hasDigits || !hasSpecialChar) {
+      return S.of(context).password_complexity_error;
+    }
     return null;
   }
 

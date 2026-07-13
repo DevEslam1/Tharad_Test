@@ -5,6 +5,7 @@ import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_image_picker_field.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../../../../core/widgets/password_requirements_widget.dart';
 import '../../../../core/widgets/language_switcher_button.dart';
 import '../../../../core/widgets/language_bottom_sheet.dart';
 import '../../../../generated/l10n.dart';
@@ -147,6 +148,7 @@ class _ProfileFormState extends State<ProfileForm> {
             controller: widget.newPasswordController,
             hintText: S.of(context).password_placeholder,
             obscureText: _isNewPasswordObscured,
+            onChanged: (value) => setState(() {}),
             suffixIcon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -161,6 +163,10 @@ class _ProfileFormState extends State<ProfileForm> {
                 size: 20.r,
               ),
             ),
+          ),
+          SizedBox(height: 6.h),
+          PasswordRequirementsWidget(
+            password: widget.newPasswordController.text,
           ),
           SizedBox(height: 12.h),
           Text(

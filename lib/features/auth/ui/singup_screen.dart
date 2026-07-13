@@ -8,6 +8,7 @@ import '../../../../core/widgets/app_button.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../core/widgets/app_image_picker_field.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../../../../core/widgets/password_requirements_widget.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_toast.dart';
@@ -169,7 +170,9 @@ class _SignupScreenState extends State<SignupScreen> {
                         controller: _passwordController,
                         hintText: S.of(context).password_placeholder,
                         obscureText: _isPasswordObscured,
-                        validator: (value) => AppValidators.validatePassword(context, value),
+                        onChanged: (value) => setState(() {}),
+                        validator: (value) =>
+                            AppValidators.validatePassword(context, value),
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -184,6 +187,10 @@ class _SignupScreenState extends State<SignupScreen> {
                             size: 20.r,
                           ),
                         ),
+                      ),
+                      SizedBox(height: 6.h),
+                      PasswordRequirementsWidget(
+                        password: _passwordController.text,
                       ),
 
                       SizedBox(height: 12.h),

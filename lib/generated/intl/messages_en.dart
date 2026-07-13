@@ -97,10 +97,22 @@ class MessageLookup extends MessageLookupByLibrary {
             "To complete opening your account, enter the verification code sent to your email"),
         "otp_title": MessageLookupByLibrary.simpleMessage("Verification Code"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "password_complexity_error": MessageLookupByLibrary.simpleMessage(
+            "Password must contain at least one uppercase letter, lowercase letter, number, and special character"),
         "password_empty_error":
             MessageLookupByLibrary.simpleMessage("Password is required"),
         "password_placeholder":
             MessageLookupByLibrary.simpleMessage("••••••••••••"),
+        "password_rule_length":
+            MessageLookupByLibrary.simpleMessage("At least 6 characters"),
+        "password_rule_lowercase":
+            MessageLookupByLibrary.simpleMessage("One lowercase letter (a-z)"),
+        "password_rule_number":
+            MessageLookupByLibrary.simpleMessage("One number (0-9)"),
+        "password_rule_special": MessageLookupByLibrary.simpleMessage(
+            "One special character (e.g. @, #, \$)"),
+        "password_rule_uppercase":
+            MessageLookupByLibrary.simpleMessage("One uppercase letter (A-Z)"),
         "password_too_short_error": MessageLookupByLibrary.simpleMessage(
             "Password must be at least 6 characters"),
         "passwords_not_match_error":

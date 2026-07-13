@@ -769,6 +769,66 @@ class S {
       args: [],
     );
   }
+
+  /// `يجب أن تحتوي كلمة المرور على حرف كبير، حرف صغير، رقم، ورمز خاص`
+  String get password_complexity_error {
+    return Intl.message(
+      'يجب أن تحتوي كلمة المرور على حرف كبير، حرف صغير، رقم، ورمز خاص',
+      name: 'password_complexity_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `على الأقل 6 أحرف`
+  String get password_rule_length {
+    return Intl.message(
+      'على الأقل 6 أحرف',
+      name: 'password_rule_length',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حرف كبير واحد (A-Z)`
+  String get password_rule_uppercase {
+    return Intl.message(
+      'حرف كبير واحد (A-Z)',
+      name: 'password_rule_uppercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حرف صغير واحد (a-z)`
+  String get password_rule_lowercase {
+    return Intl.message(
+      'حرف صغير واحد (a-z)',
+      name: 'password_rule_lowercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رقم واحد (0-9)`
+  String get password_rule_number {
+    return Intl.message(
+      'رقم واحد (0-9)',
+      name: 'password_rule_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رمز خاص واحد (مثال: @، #، $)`
+  String get password_rule_special {
+    return Intl.message(
+      'رمز خاص واحد (مثال: @، #، \$)',
+      name: 'password_rule_special',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -8,6 +8,7 @@ import '../../../../core/caching/cache_service.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_bottom_nav_bar.dart';
 import '../../../../core/widgets/app_toast.dart';
+import '../../../../core/helpers/validators.dart';
 import '../../../../generated/l10n.dart';
 import '../../home/ui/home_screen.dart';
 import '../logic/profile_cubit.dart';
@@ -75,18 +76,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
 
     if (newPassword.isNotEmpty) {
-      if (newPassword.length < 6) {
+      final passwordError =
+          AppValidators.validatePassword(context, newPassword);
+      if (passwordError != null) {
         showAppToast(
           context: context,
-          message: S.of(context).password_too_short_error,
+          message: passwordError,
           isSuccess: false,
         );
         return;
       }
-      if (newPassword != confirmNewPassword) {
+      final confirmError = AppValidators.validateConfirmPassword(
+        context,
+        confirmNewPassword,
+        newPassword,
+      );
+      if (confirmError != null) {
         showAppToast(
           context: context,
-          message: S.of(context).passwords_not_match_error,
+          message: confirmError,
           isSuccess: false,
         );
         return;

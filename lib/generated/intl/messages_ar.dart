@@ -96,10 +96,22 @@ class MessageLookup extends MessageLookupByLibrary {
             "لاستكمال فتح حسابك ادخل رمز التحقق المرسل عبر البريد الإلكتروني"),
         "otp_title": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "password_complexity_error": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي كلمة المرور على حرف كبير، حرف صغير، رقم، ورمز خاص"),
         "password_empty_error":
             MessageLookupByLibrary.simpleMessage("كلمة المرور مطلوبة"),
         "password_placeholder":
             MessageLookupByLibrary.simpleMessage("••••••••••••"),
+        "password_rule_length":
+            MessageLookupByLibrary.simpleMessage("على الأقل 6 أحرف"),
+        "password_rule_lowercase":
+            MessageLookupByLibrary.simpleMessage("حرف صغير واحد (a-z)"),
+        "password_rule_number":
+            MessageLookupByLibrary.simpleMessage("رقم واحد (0-9)"),
+        "password_rule_special": MessageLookupByLibrary.simpleMessage(
+            "رمز خاص واحد (مثال: @، #، \$)"),
+        "password_rule_uppercase":
+            MessageLookupByLibrary.simpleMessage("حرف كبير واحد (A-Z)"),
         "password_too_short_error": MessageLookupByLibrary.simpleMessage(
             "يجب أن تكون كلمة المرور 6 أحرف على الأقل"),
         "passwords_not_match_error":

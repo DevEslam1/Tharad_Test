@@ -84,5 +84,11 @@
   "gallery_label": "معرض الصور",
   "camera_label": "الكاميرا",
   "image_size_error": "حجم الصورة يتعدى 5 ميجابايت",
-  "offline_mode_msg": "أنت تعمل في وضع الأوفلاين"
+  "offline_mode_msg": "أنت تعمل في وضع الأوفلاين",
+  "password_complexity_error": "يجب أن تحتوي كلمة المرور على حرف كبير، حرف صغير، رقم، ورمز خاص",
+  "password_rule_length": "على الأقل 6 أحرف",
+  "password_rule_uppercase": "حرف كبير واحد (A-Z)",
+  "password_rule_lowercase": "حرف صغير واحد (a-z)",
+  "password_rule_number": "رقم واحد (0-9)",
+  "password_rule_special": "رمز خاص واحد (مثال: @، #، $)"
 }
